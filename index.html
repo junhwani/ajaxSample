@@ -16,7 +16,6 @@
     request.params = {};
     request.id = 1;
     request.jsonrpc = "2.0";
-    request.dataType = 'jsonp';
 
     function displaySearchResult(response){
       if(response.result){
@@ -26,6 +25,6 @@
       }
     };
 
-    $.post(url, JSON.stringify(request), displaySearchResult, "json");
+    $.post(url, JSON.stringify(request), displaySearchResult, "jsonp");
   </script>
 </html>
