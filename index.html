@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    var url = "http://localhost:8545";
+
+    var request = {};
+    request.method = "eth_accounts";
+    request.params = {};
+    request.id = 1;
+    request.jsonrpc = "2.0";
+
+    function displaySearchResult(response){
+      if(response.result){
+        alert(responst.result);
+      } else if(response.error){
+        alert("Serach error: " + response.error.message);
+      }
+    };
+
+    $.post(url, JSON.stringfy(request), displaySearchResult, "json");
+  </script>
+</html>
