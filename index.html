@@ -9,23 +9,18 @@
   </body>
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript">
-    var url = "http://localhost:8545";
-
-    var request = {};
-    request.method = "eth_accounts";
-    request.params = {};
-    request.id = 1;
-    request.jsonrpc = "2.0";
-    request.headers = {  'Access-Control-Allow-Origin': 'http://localhost:8545' };
-
-    function displaySearchResult(response){
-      if(response.result){
-        alert(responst.result);
-      } else if(response.error){
-        alert("Serach error: " + response.error.message);
-      }
-    };
-
-    $.post(url, JSON.stringify(request), displaySearchResult, "json");
+    jQuery.ajax({
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type' : 'application/json'
+      },
+      type: "POST",
+      async: true,
+      'url': 'http://localhost:8545',
+      'data':'{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}',
+      'dataType':'json',
+      'success': alert('Success'),
+      'error': alert('Failure')
+    });
   </script>
 </html>
