@@ -16,6 +16,7 @@
     request.params = {};
     request.id = 1;
     request.jsonrpc = "2.0";
+    request.headers = {  'Access-Control-Allow-Origin': 'http://localhost:8545' };
 
     function displaySearchResult(response){
       if(response.result){
@@ -25,6 +26,6 @@
       }
     };
 
-    $.post(url, JSON.stringify(request), displaySearchResult, "jsonp");
+    $.post(url, JSON.stringify(request), displaySearchResult, "json");
   </script>
 </html>
