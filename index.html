@@ -9,28 +9,22 @@
   </body>
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript">
-    var request = require('request');
-    var options = {
-      method:'POST',
-      url: 'http://localhost:8545',
-      headers: {
-        'Content-Type':'application/json',
-      },
-      body: JSON.stringify({
-        jsonrpc: "2.0",
-        method: "eth_accounts",
-        params: [],
-        id: 1
-      })
-    };
-
-    request(options, function(err, res, body){
-      if(!err){
-        console.log(body);
-        console.log(res.statusCode);
-      } else{
-        console.log("err");
-      }
+    $.ajax({
+        url: 'http://localhost:8545',
+        type: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        dataType: 'json',
+        data: JSON.stringify({
+            jsonrpc: "2.0",
+            method: "eth_accounts",
+            params: [],
+            id: 1
+        }),
+        success: function(data) {
+            console.log(data);
+        }
     });
   </script>
 </html>
