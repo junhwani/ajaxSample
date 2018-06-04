@@ -10,18 +10,12 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript">
     $.ajax({
-        url: 'http://localhost:8545',
+        url: 'http://127.0.0.1:8545',
         type: 'post',
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
-        dataType: 'jsonp',
-        data: JSON.stringify({
-            jsonrpc: "2.0",
-            method: "eth_accounts",
-            params: [],
-            id: 1
-        }),
+        data: "{\"jsonrpc\":\"2.0\",\"method\":\"eth_accounts\",\"params\":[],\"id\":1}",
         success: function(data) {
             console.log(data);
         }
