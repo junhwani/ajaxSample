@@ -15,9 +15,13 @@
         headers: {
             "Content-Type": "application/json"
         },
-        data: "{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBalance\",\"params\":[\"0x646aB1e4481CFde9eBde2C1c539a92794c2479A2\", \"latest\"],\"id\":1}",
+        data: "{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBalance\",\"params\":[\"0x5B10D8c7638951078595246283D130CfaBB658c0\", \"latest\"],\"id\":1}",
         success: function(data) {
-            console.log(data);
+          var ethBal = parseInt(data["result"],16);
+          ethBal = ethBal * Math.pow(10,(-18));
+
+          console.log(data);
+          console.log("Eth Balance : " + ethBal);
         }
     });
   </script>
